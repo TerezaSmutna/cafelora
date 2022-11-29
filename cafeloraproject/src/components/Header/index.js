@@ -18,9 +18,24 @@ export const Header = (props) => {
       <a href="#contact">kontakt</a>
     </nav>
   </div>
-
 </div>
   `;
   
+
+  element.querySelector('button').addEventListener('click', () => {
+    let choice = element.querySelector('.rollout-nav');
+    choice.classList.toggle('nav-closed');
+  });
+
+
+  let sections = element.querySelector('.rollout-nav').querySelectorAll('a');
+  sections.forEach(section => {
+    let choice = element.querySelector('.rollout-nav');
+    section.addEventListener('click', () => {
+      choice.classList.toggle('nav-closed');
+    });
+  });
+
+
   return element;
 };
