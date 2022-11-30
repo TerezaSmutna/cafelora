@@ -1,4 +1,5 @@
 import '../Menu/style.css';
+import { Layer } from './components/Layer/index.js';
 
 export const Menu = (props) => {
   const { } = props;
@@ -20,10 +21,6 @@ export const Menu = (props) => {
         </div>
         <div class="drink__info">
           <h3>Espresso</h3>
-          <div class="layer">
-            <div class="layer__color" style="background-color: #613916"></div>
-            <div class="layer__label">espresso</div>
-          </div>
         </div>
       </div>
       <div class="drink__controls">
@@ -33,54 +30,6 @@ export const Menu = (props) => {
       </div>
     </div>
 
-    
-    <div class="drink">
-    <div class="drink__product">
-      <div class="drink__cup">
-        <img src="https://apps.kodim.cz/daweb/cafelora/assets/cups/doppio.png">
-      </div>
-      <div class="drink__info">
-        <h3>Doppio</h3>
-        <div class="layer">
-          <div class="layer__color" style="background-color: #613916"></div>
-          <div class="layer__label">espresso</div>
-        </div>
-      </div>
-    </div>
-    <div class="drink__controls">
-      <button class="order-btn">
-        Objednat
-      </button>
-    </div>
-  </div>
-
-  <div class="drink">
-    <div class="drink__product">
-      <div class="drink__cup">
-        <img src="https://apps.kodim.cz/daweb/cafelora/assets/cups/lungo.png">
-      </div>
-      <div class="drink__info">
-        <h3>Lungo</h3>
-        <div class="layer">
-          <div class="layer__color" style="background-color: #b0dee1"></div>
-          <div class="layer__label">voda</div>
-        </div>
-        <div class="layer">
-          <div class="layer__color" style="background-color: #613916"></div>
-          <div class="layer__label">espresso</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="drink__controls">
-      <button class="order-btn">
-        Objednat
-      </button>
-    </div>
-  </div>
-
-  
-  </div>
 
   <div class="order-detail">
     <a href="/objednavka">Detail objednávky</a>
@@ -88,6 +37,12 @@ export const Menu = (props) => {
 </div>
 </a>
   `;
+
+
+  const drinkInfo = element.querySelector('.drink__info');
+  drinkInfo.append(
+    Layer({ color: '#feeeca', label: 'mléčná pěna' }),
+  );
 
   return element;
 };
