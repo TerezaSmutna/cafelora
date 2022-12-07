@@ -1,4 +1,4 @@
-import '../Gallery/style.css';
+import './style.css';
 
 export const Gallery = (props) => {
   const { } = props;

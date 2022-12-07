@@ -1,4 +1,4 @@
-import '../Drink/style.css';
+import './style.css';
 import { Layer } from '../Layer/index.js'
 
 export const Drink = (props) => {

@@ -1,7 +1,6 @@
 import '../Footer/style.css';
 
-export const Footer = (props) => {
-  const { } = props;
+export const Footer = () => {
 
   const element = document.createElement('footer');
   element.classList.add('footer');

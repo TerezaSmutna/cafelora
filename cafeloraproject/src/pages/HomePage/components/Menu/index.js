@@ -1,4 +1,4 @@
-import '../Menu/style.css';
+import './style.css';
 import { Drink } from './components/Drink/index.js'
 
 export const Menu = (props) => {

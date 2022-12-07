@@ -1,7 +1,6 @@
-import '../Header/style.css';
+import './style.css';
 
-export const Header = (props) => {
-  const { } = props;
+export const Header = () => {
 
   const element = document.createElement('header');
   element.classList.add('header');
