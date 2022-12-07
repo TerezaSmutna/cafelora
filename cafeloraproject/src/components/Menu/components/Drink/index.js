@@ -22,6 +22,36 @@ export const Drink = (props) => {
   </div>
   `;
 
+
+  element.querySelector('button').addEventListener('click', () => {
+
+    fetch(`https://apps.kodim.cz/daweb/cafelora/api/me/drinks/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Email tereza@seznam.com',
+      },
+      body: JSON.stringify({ ordered: !ordered }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        element.replaceWith(Drink({
+        id: id, 
+        name: name,
+        ordered: ordered,
+        image: image,
+        layers: layers,
+      }));
+      });
+  });
+
+  if (ordered) {
+    element.querySelector('button').textContent = 'Zrušit';
+    element.querySelector('button').classList.add('order-btn--ordered');
+  } else {
+    element.querySelector('button').textContent = 'Objednat';
+  }
+
   const drinkInfo = element.querySelector('.drink__info');
   drinkInfo.append(...layers.map((item) => Layer(item)));
 
