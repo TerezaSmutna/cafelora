@@ -3,6 +3,9 @@ import { Menu } from './components/Menu/index.js';
 import { Gallery } from './components/Gallery/index.js';
 import { Contact } from './components/Contact/index.js';
 
+import { Header } from '../../components/Header/index.js';
+import { Footer } from '../../components/Footer/index.js';
+
 
 export const HomePage = () => {
 
@@ -16,6 +19,11 @@ export const HomePage = () => {
     Menu({}),
     Gallery({}),
     Contact({}),
+  );
+
+  element.append(
+    Header({ showMenu: true }),
+    Footer(),
   );
 
   return element;
