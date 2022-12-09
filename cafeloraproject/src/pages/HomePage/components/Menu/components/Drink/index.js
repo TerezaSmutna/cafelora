@@ -22,6 +22,12 @@ export const Drink = (props) => {
   </div>
   `;
 
+  if (ordered) {
+    element.querySelector('button').textContent = 'Zrušit';
+    element.querySelector('button').classList.add('order-btn--ordered');
+  } else {
+    element.querySelector('button').textContent = 'Objednat';
+  }
 
   element.querySelector('button').addEventListener('click', () => {
 
@@ -43,17 +49,12 @@ export const Drink = (props) => {
         layers: layers,
       }));
       });
+      //window.location.href = '/objednavka';
   });
-
-  if (ordered) {
-    element.querySelector('button').textContent = 'Zrušit';
-    element.querySelector('button').classList.add('order-btn--ordered');
-  } else {
-    element.querySelector('button').textContent = 'Objednat';
-  }
 
   const drinkInfo = element.querySelector('.drink__info');
   drinkInfo.append(...layers.map((item) => Layer(item)));
+
 
   return element;
 };

@@ -8,23 +8,18 @@ import { Footer } from '../../components/Footer/index.js';
 
 
 export const HomePage = () => {
-
   const element = document.createElement('div');
   element.classList.add('page');
-  element.innerHTML = `
-  `;
   
   element.append(
+    Header({ showMenu: true }),
     Banner({}),
     Menu({}),
     Gallery({}),
     Contact({}),
-  );
-
-  element.append(
-    Header({ showMenu: true }),
     Footer(),
   );
+
 
   return element;
 };
