@@ -9,6 +9,7 @@ export const Order = (props) => {
   element.classList.add('order');
   element.innerHTML = `
       <div class="order__content container">
+      <br><br><br><br>
         <h1>Vaše objedávnka</h1>
         <p class="empty-order">Zatím nemáte nic objednáno</p>
         <div class="order__items">
