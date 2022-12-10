@@ -4,6 +4,16 @@ import { Layer } from '../Layer/index.js'
 export const Drink = (props) => {
   const { id, name, ordered, image, layers } = props;
 
+  let orderedClass = 'order-btn';
+  if (ordered) {
+    orderedClass = 'order-btn order-btn--ordered';
+  }
+
+  let orderedText = 'Objednat';
+  if (ordered) {
+    orderedText = 'Zrušit';
+  }
+
   const element = document.createElement('div');
   element.classList.add('drink');
   element.innerHTML = `
@@ -16,20 +26,15 @@ export const Drink = (props) => {
     </div>
   </div>
   <div class="drink__controls">
-    <button class="order-btn">
-      Objednat
+    <button class="${orderedClass}">
+      ${orderedText}
     </button>
   </div>
   `;
 
-  if (ordered) {
-    element.querySelector('button').textContent = 'Zrušit';
-    element.querySelector('button').classList.add('order-btn--ordered');
-  } else {
-    element.querySelector('button').textContent = 'Objednat';
-  }
 
   element.querySelector('button').addEventListener('click', () => {
+
 
     fetch(`https://apps.kodim.cz/daweb/cafelora/api/me/drinks/${id}`, {
       method: 'PATCH',
@@ -41,16 +46,20 @@ export const Drink = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         element.replaceWith(Drink({
         id: id, 
         name: name,
-        ordered: ordered,
+        ordered: data.results.ordered,
         image: image,
         layers: layers,
       }));
       });
+
+
       //window.location.href = '/objednavka';
   });
+
 
   const drinkInfo = element.querySelector('.drink__info');
   drinkInfo.append(...layers.map((item) => Layer(item)));
